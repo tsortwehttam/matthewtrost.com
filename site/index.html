@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Matthew Trost</title>
+    <meta
+      name="description"
+      content="Matthew Raymond Trost / トロスト マシュー レイモンド"
+    />
+    <link rel="icon" href="/card.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --bg: #111111;
+        --fg: #ffffff;
+        --muted: #999999;
+        --card-ratio: 1.6538461538;
+        --mono:
+          "Founders Grotesk Mono", "Founders Grotesk", "SF Mono",
+          "SFMono-Regular", ui-monospace, monospace;
+        --sans: "Inter", "Hiragino Sans", "Noto Sans JP", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--bg);
+      }
+
+      body {
+        min-height: 100svh;
+        color: var(--fg);
+      }
+
+      main {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        padding: 0;
+      }
+
+      .frame {
+        position: relative;
+        width: min(100vw, calc(100svh * var(--card-ratio)));
+        height: min(100svh, calc(100vw / var(--card-ratio)));
+        overflow: hidden;
+        background: var(--bg);
+        container-type: size;
+      }
+
+      .line {
+        position: absolute;
+        left: 27.63%;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .name {
+        top: 41.85%;
+        font-family: var(--mono);
+        font-size: 5.846cqh;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.18;
+      }
+
+      .kana {
+        top: 52.05%;
+        color: var(--muted);
+        font-family: var(--sans);
+        font-size: 4.923cqh;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1.18;
+      }
+
+      @media (max-aspect-ratio: 1075 / 650) {
+        .line {
+          left: 8vw;
+        }
+
+        .name {
+          top: 43%;
+          font-size: 5.2cqw;
+        }
+
+        .kana {
+          top: 52.5%;
+          font-size: 4.4cqw;
+          white-space: normal;
+          max-width: 84cqw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="frame" aria-label="Business card">
+        <h1 class="line name">Trost,Matthew Raymond</h1>
+        <p class="line kana">トロスト マシュー レイモンド</p>
+      </section>
+    </main>
+  </body>
+</html>

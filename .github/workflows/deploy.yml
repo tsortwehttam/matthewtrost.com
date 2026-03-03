@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  AWS_REGION: us-east-1
+  BUCKET: www.matthewtrost.com
+  DISTRIBUTION_ID: EUSBYNLOCURPT
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: arn:aws:iam::447990480369:role/github-actions-matthewtrost-com-deploy
+
+      - run: aws s3 sync site/ s3://${BUCKET} --delete --cache-control "public,max-age=31536000,immutable"
+
+      - run: aws s3 cp site/index.html s3://${BUCKET}/index.html --cache-control "no-store"
+
+      - run: aws s3 cp site/robots.txt s3://${BUCKET}/robots.txt --cache-control "public,max-age=300"
+
+      - run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
