@@ -12,6 +12,10 @@ Static homepage for `matthewtrost.com` and `www.matthewtrost.com`.
 
 AWS is provisioned from `infra/site.yml` in `us-east-1`. GitHub Actions assumes an AWS role with OIDC and syncs `site/` to S3, then invalidates CloudFront.
 
+## Local
+
+Run `yarn dev`, then open `http://localhost:3000`.
+
 ## License
 
 See `LICENSE`.

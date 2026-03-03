@@ -11,15 +11,22 @@
       name="description"
       content="Matthew Raymond Trost / トロスト マシュー レイモンド"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="/card.svg" type="image/svg+xml" />
     <style>
       :root {
         --bg: #111111;
         --fg: #ffffff;
         --muted: #999999;
+        --mono-web: "IBM Plex Mono";
         --card-ratio: 1.6538461538;
         --mono:
-          "Founders Grotesk Mono", "Founders Grotesk", "SF Mono",
+          "Founders Grotesk Mono", var(--mono-web), "Founders Grotesk", "SF Mono",
           "SFMono-Regular", ui-monospace, monospace;
         --sans: "Inter", "Hiragino Sans", "Noto Sans JP", sans-serif;
       }
@@ -56,15 +63,23 @@
         container-type: size;
       }
 
-      .line {
+      .copy {
         position: absolute;
-        left: 27.63%;
+        inset: 0;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        gap: 2.615cqh;
+        transform: translateY(1.35cqh);
+      }
+
+      .line {
         margin: 0;
+        text-align: center;
         white-space: nowrap;
       }
 
       .name {
-        top: 41.85%;
         font-family: var(--mono);
         font-size: 5.846cqh;
         font-weight: 400;
@@ -73,7 +88,6 @@
       }
 
       .kana {
-        top: 52.05%;
         color: var(--muted);
         font-family: var(--sans);
         font-size: 4.923cqh;
@@ -83,20 +97,19 @@
       }
 
       @media (max-aspect-ratio: 1075 / 650) {
-        .line {
-          left: 8vw;
+        .copy {
+          gap: 3.8cqw;
+          padding: 0 8vw;
         }
 
         .name {
-          top: 43%;
           font-size: 5.2cqw;
         }
 
         .kana {
-          top: 52.5%;
           font-size: 4.4cqw;
           white-space: normal;
-          max-width: 84cqw;
+          max-width: 100%;
         }
       }
     </style>
@@ -104,8 +117,10 @@
   <body>
     <main>
       <section class="frame" aria-label="Business card">
-        <h1 class="line name">Trost,Matthew Raymond</h1>
-        <p class="line kana">トロスト マシュー レイモンド</p>
+        <div class="copy">
+          <h1 class="line name">Trost,Matthew Raymond</h1>
+          <p class="line kana">トロスト マシュー レイモンド</p>
+        </div>
       </section>
     </main>
   </body>
