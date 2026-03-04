@@ -58,6 +58,29 @@ Resources:
         SigningBehavior: always
         SigningProtocol: sigv4
 
+  ResponseHeadersPolicy:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: matthewtrost-com-security-headers
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
+            Override: true
+          ContentTypeOptions:
+            Override: true
+          FrameOptions:
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: strict-origin-when-cross-origin
+            Override: true
+          StrictTransportSecurity:
+            AccessControlMaxAgeSec: 31536000
+            IncludeSubdomains: true
+            Preload: true
+            Override: true
+
   Distribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -75,6 +98,7 @@ Resources:
             - GET
             - HEAD
           Compress: true
+          ResponseHeadersPolicyId: !Ref ResponseHeadersPolicy
           TargetOriginId: site
           ViewerProtocolPolicy: redirect-to-https
         DefaultRootObject: index.html
