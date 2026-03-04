@@ -2,33 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>Matthew Trost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Matthew Trost | Startup Founder and Software Engineer</title>
     <meta
       name="description"
-      content="Matthew Raymond Trost / トロスト マシュー レイモンド"
+      content="Matthew Trost is a startup founder and software engineer based in Kamakura, Japan and Brooklyn, New York. YC W18 founder with 15+ years building products, teams, and startups."
     />
+    <meta name="author" content="Matthew Trost" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#111111" />
+    <link rel="canonical" href="https://www.matthewtrost.com/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
-      rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500&display=block" rel="stylesheet" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="Matthew Trost | Startup Founder and Software Engineer" />
+    <meta
+      property="og:description"
+      content="Matthew Trost is a startup founder and software engineer based in Kamakura, Japan and Brooklyn, New York. YC W18 founder with 15+ years building products, teams, and startups."
     />
-    <link rel="icon" href="/card.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.matthewtrost.com/" />
+    <meta property="og:image" content="https://www.matthewtrost.com/icon.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Matthew Trost site icon" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Matthew Trost | Startup Founder and Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Matthew Trost is a startup founder and software engineer based in Kamakura, Japan and Brooklyn, New York."
+    />
+    <meta name="twitter:image" content="https://www.matthewtrost.com/icon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Matthew Trost",
+        "alternateName": "Matthew Raymond Trost",
+        "jobTitle": "Startup Founder and Software Engineer",
+        "description": "Matthew Trost is a startup founder and software engineer based in Kamakura, Japan and Brooklyn, New York. Over 15+ years in creative technology, media, and entertainment, he has built products, led teams, and helped startups scale.",
+        "url": "https://www.matthewtrost.com/",
+        "image": "https://www.matthewtrost.com/icon.png",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "Kamakura",
+            "addressCountry": "JP"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "Brooklyn",
+            "addressRegion": "NY",
+            "addressCountry": "US"
+          }
+        ],
+        "sameAs": [
+          "https://github.com/tsortwehttam",
+          "https://x.com/tsortwehttam",
+          "https://www.instagram.com/tsortwehttam/",
+          "https://www.linkedin.com/in/matthew-trost-8081a342/",
+          "https://drinksuperoot.com/",
+          "https://aisatsu.co/"
+        ]
+      }
+    </script>
     <style>
       :root {
         --bg: #111111;
         --fg: #ffffff;
         --muted: #999999;
-        --mono-web: "IBM Plex Mono";
+        --mono-web: "M PLUS 1 Code";
         --card-ratio: 1.6538461538;
         --mono:
-          "Founders Grotesk Mono", var(--mono-web), "Founders Grotesk", "SF Mono",
-          "SFMono-Regular", ui-monospace, monospace;
-        --sans: "Inter", "Hiragino Sans", "Noto Sans JP", sans-serif;
+          "Founders Grotesk Mono", var(--mono-web), "Founders Grotesk", "SF Mono", "SFMono-Regular", ui-monospace,
+          monospace;
+        --sans: var(--mono-web), "Hiragino Sans", monospace;
       }
 
       * {
@@ -48,6 +100,10 @@
       }
 
       main {
+        display: block;
+      }
+
+      .hero {
         display: grid;
         min-height: 100svh;
         place-items: center;
@@ -69,7 +125,7 @@
         display: grid;
         align-content: center;
         justify-items: center;
-        gap: 2.615cqh;
+        gap: 0.65375cqh;
         transform: translateY(1.35cqh);
       }
 
@@ -96,9 +152,69 @@
         line-height: 1.18;
       }
 
+      .bio {
+        display: grid;
+        justify-items: center;
+        padding: 0 1.5rem;
+      }
+
+      .bio-copy {
+        margin: 0;
+        width: min(100%, 42rem);
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.7;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      .links {
+        display: grid;
+        justify-items: center;
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      .links-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.9rem;
+        width: min(100%, 42rem);
+      }
+
+      .link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        color: var(--fg);
+        font-family: var(--mono);
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.35;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .link:hover,
+      .link:focus-visible {
+        color: var(--muted);
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        fill: none;
+        flex: none;
+      }
+
       @media (max-aspect-ratio: 1075 / 650) {
         .copy {
-          gap: 3.8cqw;
+          gap: 0.95cqw;
           padding: 0 8vw;
         }
 
@@ -111,16 +227,98 @@
           white-space: normal;
           max-width: 100%;
         }
+
+        .links {
+          padding-top: 3rem;
+        }
+
+        .link {
+          font-size: 0.95rem;
+        }
+
+        .bio-copy {
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .links-list {
+          grid-template-columns: 1fr;
+          justify-items: center;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <section class="frame" aria-label="Business card">
-        <div class="copy">
-          <h1 class="line name">Trost,Matthew Raymond</h1>
-          <p class="line kana">トロスト マシュー レイモンド</p>
+      <section class="hero" aria-label="Business card">
+        <div class="frame">
+          <div class="copy">
+            <h1 class="line name">Trost,Matthew Raymond</h1>
+            <p class="line kana">トロスト マシュー レイモンド</p>
+          </div>
         </div>
+      </section>
+      <section class="bio" aria-label="About Matthew Trost">
+        <p class="bio-copy">
+          Matthew Trost is a startup founder, creative, inventor, and software engineer based in Kamakura, Japan and
+          Brooklyn, New York. With over 15+ years experience in startups ranging from creative technology to CPG, he has
+          built products, led teams, and helped companies scale. He co-founded Haiku and entered YC in the W18 batch.
+          His work has reached #1 on Product Hunt and Hacker News. He later joined Plato Design and Aesthetic (also YC
+          companies), and co-founded Superoot. He likes tennis, epic novels, interactive fiction, audiobooks, and
+          can&nbsp;speak&nbsp;Japanese&nbsp;at&nbsp;a&nbsp;CEFR&nbsp;B2&nbsp;level.
+        </p>
+      </section>
+      <section class="links" aria-label="Links">
+        <nav class="links-list">
+          <a class="link" href="https://github.com/tsortwehttam" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 18c-3-1-4-4-4-6a6.5 6.5 0 0 1 13 0c0 2-1 5-4 6" />
+              <path d="M9 14c1.2-.8 1.8-.8 3 0 1.2-.8 1.8-.8 3 0" />
+              <path d="M10 18v-2" />
+              <path d="M14 18v-2" />
+              <path d="M8 9 6.5 7.5" />
+              <path d="M16 9l1.5-1.5" /></svg
+            ><span>GitHub</span></a
+          >
+          <a class="link" href="https://x.com/tsortwehttam" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 6h3l8 12h-3z" />
+              <path d="M16 6h3l-4.5 5.2" />
+              <path d="M9.5 12.8 5 18h3" /></svg
+            ><span>X</span></a
+          >
+          <a class="link" href="https://www.instagram.com/tsortwehttam/" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4.5" y="4.5" width="15" height="15" rx="4" />
+              <circle cx="12" cy="12" r="3.25" />
+              <circle cx="16.6" cy="7.4" r="0.7" fill="currentColor" stroke="none" /></svg
+            ><span>Instagram</span></a
+          >
+          <a class="link" href="https://www.linkedin.com/in/matthew-trost-8081a342/" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 10v7" />
+              <path d="M7 7h.01" />
+              <path d="M11 17v-4.2c0-1.7 1-2.8 2.5-2.8S16 11.1 16 12.8V17" />
+              <path d="M16 17v-4" /></svg
+            ><span>LinkedIn</span></a
+          >
+          <a class="link" href="https://drinksuperoot.com/" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 19v-8" />
+              <path d="M12 11c0-3 2.2-5 5-5 0 3-2.2 5-5 5Z" />
+              <path d="M12 14c0-2.8-2-4.5-4.5-4.5 0 2.8 2 4.5 4.5 4.5Z" /></svg
+            ><span>Superoot</span></a
+          >
+          <a class="link" href="https://aisatsu.co/" target="_blank" rel="noreferrer"
+            ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4.5" y="4.5" width="6" height="6" rx="1" />
+              <rect x="13.5" y="4.5" width="6" height="6" rx="1" />
+              <rect x="4.5" y="13.5" width="6" height="6" rx="1" />
+              <rect x="13.5" y="13.5" width="6" height="6" rx="1" /></svg
+            ><span>Aisatsu</span></a
+          >
+        </nav>
       </section>
     </main>
   </body>

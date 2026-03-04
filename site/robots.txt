@@ -1,2 +1,8 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://www.matthewtrost.com/sitemap.xml
+
+# AI crawler references
+# https://www.matthewtrost.com/llms.txt
+# https://www.matthewtrost.com/ai.txt
