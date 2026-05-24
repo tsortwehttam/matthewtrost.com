@@ -10,7 +10,7 @@ Background:
 - Built work that reached #1 on Product Hunt and #1 on Hacker News
 - Worked across creative technology, media, entertainment, software, and operations
 - Later joined Plato Design and co-founded Superoot
-- Speaks Japanese (CEFR B2, それぐらい)
+- Speaks Japanese (CEFR B1, それぐらい)
 
 Links:
 - GitHub: https://github.com/tsortwehttam
