@@ -30,6 +30,8 @@ jobs:
 
       - run: aws s3 cp site/index.html s3://${BUCKET}/index.html --cache-control "no-store"
 
+      - run: aws s3 cp site/cv.html s3://${BUCKET}/cv --content-type "text/html; charset=utf-8" --cache-control "no-store"
+
       - run: aws s3 cp site/robots.txt s3://${BUCKET}/robots.txt --cache-control "public,max-age=300"
 
       - run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"

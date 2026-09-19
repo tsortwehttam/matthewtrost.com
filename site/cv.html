@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>CV | Matthew Trost</title>
+    <meta
+      name="description"
+      content="Matthew Trost is a founder, software engineer, and operator with 15+ years of experience building products, teams, and companies."
+    />
+    <meta name="author" content="Matthew Trost" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#111111" />
+    <link rel="canonical" href="https://www.matthewtrost.com/cv" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500&amp;display=block" rel="stylesheet" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="CV | Matthew Trost" />
+    <meta
+      property="og:description"
+      content="Founder, software engineer, and operator with 15+ years of experience building products, teams, and companies."
+    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://www.matthewtrost.com/cv" />
+    <meta property="og:image" content="https://www.matthewtrost.com/icon.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Matthew Trost site icon" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="CV | Matthew Trost" />
+    <meta
+      name="twitter:description"
+      content="Founder, software engineer, and operator with 15+ years of experience building products, teams, and companies."
+    />
+    <meta name="twitter:image" content="https://www.matthewtrost.com/icon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://www.matthewtrost.com/cv",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Matthew Trost",
+          "jobTitle": "Founder, Software Engineer, and Operator",
+          "url": "https://www.matthewtrost.com/",
+          "image": "https://www.matthewtrost.com/icon.png",
+          "sameAs": [
+            "https://github.com/tsortwehttam",
+            "https://www.linkedin.com/in/matthew-trost-8081a342/"
+          ]
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --bg: #111111;
+        --fg: #ffffff;
+        --muted: #999999;
+        --rule: #333333;
+        --mono-web: "M PLUS 1 Code";
+        --mono:
+          "Founders Grotesk Mono", var(--mono-web), "Founders Grotesk", "SF Mono", "SFMono-Regular", ui-monospace,
+          monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--bg);
+        color-scheme: dark;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--mono);
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: var(--muted);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.22em;
+      }
+
+      a:hover,
+      a:focus-visible {
+        color: var(--muted);
+      }
+
+      .page {
+        width: min(100% - 3rem, 76rem);
+        margin: 0 auto;
+        padding: 2rem 0 5rem;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 2.75rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .site-nav a {
+        text-decoration: none;
+      }
+
+      .site-nav span {
+        color: var(--muted);
+      }
+
+      .masthead {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+        gap: 4rem;
+        padding: 4.5rem 0 4rem;
+        border-bottom: 1px solid var(--fg);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 1.25rem;
+        font-size: clamp(2.8rem, 7vw, 6.5rem);
+        font-weight: 400;
+        letter-spacing: -0.055em;
+        line-height: 0.92;
+      }
+
+      .title {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        text-wrap: balance;
+      }
+
+      .summary {
+        align-self: end;
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 2.2fr);
+        gap: 4rem;
+        padding-top: 4rem;
+      }
+
+      .sidebar {
+        display: grid;
+        align-content: start;
+        gap: 2.75rem;
+      }
+
+      .section-title,
+      .side-title {
+        margin: 0;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+
+      .side-block {
+        padding-top: 1rem;
+        border-top: 1px solid var(--rule);
+      }
+
+      .side-title {
+        margin-bottom: 1rem;
+        color: var(--muted);
+      }
+
+      .side-block p,
+      .side-block ul {
+        margin-bottom: 0;
+      }
+
+      .plain-list,
+      .contact-list,
+      .roles {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .plain-list {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .education {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .education p {
+        margin: 0;
+      }
+
+      .education strong {
+        display: block;
+        font-weight: 500;
+      }
+
+      .education span {
+        display: block;
+        color: var(--muted);
+      }
+
+      .experience > .section-title {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--fg);
+      }
+
+      .role {
+        display: grid;
+        grid-template-columns: 10.5rem minmax(0, 1fr);
+        gap: 1.5rem;
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .dates {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .role h3 {
+        margin-bottom: 0.25rem;
+        font-size: 1.22rem;
+        font-weight: 500;
+        line-height: 1.35;
+      }
+
+      .role-title {
+        margin-bottom: 1rem;
+        color: var(--muted);
+      }
+
+      .role-copy > :last-child {
+        margin-bottom: 0;
+      }
+
+      .role ul {
+        display: grid;
+        gap: 0.55rem;
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .role.compact {
+        padding-block: 1.5rem;
+      }
+
+      .role.compact .role-title {
+        margin-bottom: 0.5rem;
+      }
+
+      .role.compact p:last-child {
+        margin-bottom: 0;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        padding-top: 2rem;
+        color: var(--muted);
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 840px) {
+        .page {
+          width: min(100% - 2rem, 46rem);
+          padding-top: 1rem;
+        }
+
+        .masthead,
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .masthead {
+          gap: 2.5rem;
+          padding: 3.5rem 0 3rem;
+        }
+
+        .layout {
+          gap: 3.5rem;
+          padding-top: 3rem;
+        }
+
+        .sidebar {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 2.5rem 2rem;
+        }
+
+        .contact {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .site-nav {
+          align-items: flex-start;
+          gap: 1rem;
+        }
+
+        .site-nav span {
+          text-align: right;
+        }
+
+        .sidebar,
+        .role {
+          grid-template-columns: 1fr;
+        }
+
+        .role {
+          gap: 0.4rem;
+        }
+
+        .footer {
+          display: grid;
+          gap: 0.5rem;
+        }
+      }
+
+      @media print {
+        :root {
+          --bg: #ffffff;
+          --fg: #000000;
+          --muted: #4a4a4a;
+          --rule: #bdbdbd;
+        }
+
+        html {
+          color-scheme: light;
+        }
+
+        body {
+          font-size: 9pt;
+          line-height: 1.45;
+        }
+
+        .page {
+          width: 100%;
+          padding: 0;
+        }
+
+        .site-nav {
+          display: none;
+        }
+
+        .masthead {
+          grid-template-columns: 1.4fr 1fr;
+          gap: 2rem;
+          padding: 0 0 1.5rem;
+        }
+
+        h1 {
+          font-size: 34pt;
+        }
+
+        .layout {
+          grid-template-columns: 12rem 1fr;
+          gap: 2rem;
+          padding-top: 1.5rem;
+        }
+
+        .sidebar {
+          gap: 1.5rem;
+        }
+
+        .role {
+          grid-template-columns: 7.5rem 1fr;
+          gap: 1rem;
+          padding: 0.8rem 0;
+          break-inside: avoid;
+        }
+
+        .role h3 {
+          font-size: 10.5pt;
+        }
+
+        .footer {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="site-nav" aria-label="Site navigation">
+        <a href="/" aria-label="Back to matthewtrost.com">&larr; matthewtrost.com</a>
+        <span>Curriculum vitae</span>
+      </nav>
+
+      <header class="masthead">
+        <div>
+          <h1>Matthew Trost</h1>
+          <p class="title">Founder / software engineer / operator</p>
+        </div>
+        <p class="summary">
+          Founder of three companies and a software engineer with 15+ years of full-stack work. I have built developer
+          tools, infrastructure, consumer products, and production AI systems. At Superoot I am the only engineer and
+          also handle supply chain, financial modeling, bookkeeping, and compliance.
+        </p>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" aria-label="Skills, contact, and education">
+          <section class="side-block contact">
+            <h2 class="side-title">Contact</h2>
+            <ul class="contact-list">
+              <li><a href="mailto:mrtrost@gmail.com">mrtrost@gmail.com</a></li>
+              <li><a href="https://github.com/tsortwehttam">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/matthew-trost-8081a342/">LinkedIn</a></li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2 class="side-title">Operations</h2>
+            <p>
+              Financial modeling, bookkeeping, trade planning, supply chain, freight, customs, compliance, insurance,
+              supplier and retailer negotiation
+            </p>
+          </section>
+
+          <section class="side-block">
+            <h2 class="side-title">Leadership &amp; product</h2>
+            <p>Company building, team building, product strategy, technical project management, editorial and technical writing</p>
+          </section>
+
+          <section class="side-block">
+            <h2 class="side-title">Engineering</h2>
+            <ul class="plain-list">
+              <li>TypeScript, JavaScript, Node.js, React, Redux, HTML, CSS</li>
+              <li>PostgreSQL, MySQL, SQL, GraphQL, REST</li>
+              <li>C#/.NET, Swift, Ruby on Rails, Python</li>
+              <li>AWS, Google Cloud, Docker, CI/CD, Electron</li>
+              <li>Compilers, domain-specific languages, background jobs</li>
+              <li>Shopify, Hydrogen, Stripe</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2 class="side-title">AI systems</h2>
+            <p>Tool-using agents, MCP, evals, RAG, classifiers, prompt and context design, Anthropic and OpenAI APIs</p>
+          </section>
+
+          <section class="side-block">
+            <h2 class="side-title">Education</h2>
+            <div class="education">
+              <p>
+                <strong>University of Missouri–St. Louis</strong>
+                <span>B.A. English, cum laude; Certificate in Creative Writing; postgraduate Creative Writing Grant · Aug 2001–Aug 2005</span>
+              </p>
+              <p>
+                <strong>Borough of Manhattan Community College</strong>
+                <span>Programming and mathematics · Jan–May and Aug–Dec 2010</span>
+              </p>
+              <p>
+                <strong>Yamasa Institute</strong>
+                <span>Intensive Japanese, B1.1–B2.1 · Apr 2025–Jul 2026</span>
+              </p>
+              <p>
+                <strong>Chaminade College Preparatory School</strong>
+                <span>High school diploma · Aug 1997–May 2001</span>
+              </p>
+            </div>
+          </section>
+        </aside>
+
+        <section class="experience" aria-labelledby="experience-title">
+          <h2 class="section-title" id="experience-title">Experience</h2>
+          <ol class="roles">
+            <li class="role">
+              <p class="dates">Feb 2024–present</p>
+              <div class="role-copy">
+                <h3><a href="https://drinksuperoot.com/">Superoot</a></h3>
+                <p class="role-title">Co-founder, CTO &amp; COO</p>
+                <ul>
+                  <li>Started a consumer drink-mix company with one co-founder. Superoot is now sold in 375 Whole Foods stores nationwide.</li>
+                  <li>Built the company’s operating software in TypeScript and Node.js, bringing data from email, Slack, Shopify, and distributor portals into shared ledgers and reports.</li>
+                  <li>Automated forecasting, document extraction, chargeback reconciliation, scenario modeling, and vendor correspondence with tool-using LLM agents.</li>
+                  <li>Manage supply chain, freight, customs, compliance, financial modeling, the books, and insurance. Helped secure nationwide Sprouts and HomeGoods deals and distribution to about 300 independent grocers.</li>
+                  <li>Built the Shopify storefront and its API integrations, and contributed to a rebuild on Hydrogen.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="role">
+              <p class="dates">Sep 2019–Feb 2024</p>
+              <div class="role-copy">
+                <h3>Aesthetic</h3>
+                <p class="role-title">Senior software engineer → founder &amp; principal software engineer → founder &amp; CTO</p>
+                <ul>
+                  <li>Stayed with the continuing team after Plato Design restructured, joined as a founder in 2020, and became CTO in 2023.</li>
+                  <li>Led engineering and product through several pivots, including an NFT platform and language-learning products.</li>
+                  <li>Built <a href="https://apps.apple.com/us/app/memtalk-audio-flashcards/id6468964614">MemTalk</a>, a hands-free iOS app for studying AI-generated audio flashcards.</li>
+                  <li>Wrote the Swift systems that coordinated speech synthesis, speech recognition, and background playback while the phone was locked.</li>
+                  <li>Owned architecture and delivery across TypeScript, Node.js, React, Swift, and PostgreSQL.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">May–Aug 2019</p>
+              <div class="role-copy">
+                <h3>Plato Design</h3>
+                <p class="role-title">Senior software engineer</p>
+                <p>Built data models, APIs, dashboards, and background jobs for back-office software used by design agencies for quoting, project accounting, resourcing, and permissions.</p>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">Nov 2018–Apr 2019</p>
+              <div class="role-copy">
+                <h3>Independent projects and exploration</h3>
+                <p>Developed personal software projects and explored possible new ventures after Haiku.</p>
+              </div>
+            </li>
+
+            <li class="role">
+              <p class="dates">Nov 2016–Oct 2018</p>
+              <div class="role-copy">
+                <h3>Haiku · Y Combinator W18</h3>
+                <p class="role-title">Co-founder &amp; CTO</p>
+                <ul>
+                  <li>Started the company with one co-founder and led it into Y Combinator’s Winter 2018 batch.</li>
+                  <li>Wrote the compiler, runtime, and most of the Electron editor for Haiku Animator, which turned visual animations into version-controlled code for web and native apps.</li>
+                  <li>Grew the team to five engineers and a designer. The open-source core has 766 GitHub stars; the launch reached #1 on Product Hunt and Hacker News.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">Mar–Nov 2016</p>
+              <div class="role-copy">
+                <h3>Paperspace</h3>
+                <p class="role-title">Software engineer</p>
+                <p>Built TypeScript backend systems for a cloud virtual-desktop and GPU-compute product, including a Stripe payments rebuild.</p>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">Aug 2015–Mar 2016</p>
+              <div class="role-copy">
+                <h3>Civil Comments</h3>
+                <p class="role-title">Senior engineer</p>
+                <p>Worked in Ruby on Rails, JavaScript, and Python to take a self-moderating comments platform from prototype to launch.</p>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">Sep 2014–Aug 2015</p>
+              <div class="role-copy">
+                <h3>Famo.us</h3>
+                <p class="role-title">Curriculum engineer → software engineer &amp; team lead / technical project manager</p>
+                <p>Developed technical curriculum, then led a four-person framework team and designed the declarative API for a 3D web engine.</p>
+              </div>
+            </li>
+
+            <li class="role">
+              <p class="dates">Dec 2007–Aug 2014</p>
+              <div class="role-copy">
+                <h3>TED Conferences</h3>
+                <p class="role-title">Editorial intern → editorial assistant → assistant editor → QA lead → software engineer</p>
+                <ul>
+                  <li>Proofread and wrote copy for TED.com and conference programs.</li>
+                  <li>Joined the founding team of the TED Open Translation Project and wrote Java tooling to automate talk housekeeping. This was my first programming.</li>
+                  <li>Led QA and project-managed the original TEDx website launch while learning programming and mathematics at night.</li>
+                  <li>Joined the development team in 2012 and shipped software for TED.com and TEDx in PHP and Symfony, Ruby on Rails, JavaScript, Sass, and MySQL.</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="role compact">
+              <p class="dates">2005–2008</p>
+              <div class="role-copy">
+                <h3>Early employment</h3>
+                <ul>
+                  <li><strong>Oren’s Daily Roast · Sep 2005–Oct 2006.</strong> Moved from barista to assistant manager.</li>
+                  <li><strong>Angelica Kitchen · Apr 2006–Apr 2008.</strong> Moved from juice bar cashier to expeditor and then kitchen supervisor.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <p>Matthew Trost</p>
+        <p><a href="mailto:mrtrost@gmail.com">mrtrost@gmail.com</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
