@@ -5,6 +5,7 @@ Static homepage for `matthewtrost.com` and `www.matthewtrost.com`.
 ## Structure
 
 - `site/`: static files deployed to S3
+- `site/rirekisho.html`: Japanese résumé page; private application fields are entered in the browser before printing
 - `infra/site.yml`: CloudFormation for S3, ACM, CloudFront, Route53, and GitHub OIDC
 - `.github/workflows/deploy.yml`: deploys `site/` on pushes to `main`
 

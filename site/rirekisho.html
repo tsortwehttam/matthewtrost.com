@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>履歴書 | Matthew Trost</title>
+    <meta name="description" content="Matthew Trost's Japanese résumé and A4 application form." />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <style>
+      :root { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", sans-serif; color: #171717; background: #111; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      button, input, textarea { font: inherit; }
+      a { color: inherit; }
+      .toolbar { max-width: 1100px; margin: auto; padding: 30px 24px 25px; color: #fff; }
+      .toolbar nav { display: flex; justify-content: space-between; gap: 20px; font-size: 13px; }
+      .toolbar nav a { text-decoration: none; }
+      .toolbar h1 { margin: 38px 0 9px; font-size: clamp(28px, 5vw, 48px); font-weight: 400; }
+      .toolbar p { max-width: 760px; color: #bbb; line-height: 1.7; }
+      .editor { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 28px 0 12px; }
+      .editor label { display: grid; gap: 5px; font-size: 12px; color: #bbb; }
+      .editor input, .editor textarea { width: 100%; min-height: 39px; border: 1px solid #555; border-radius: 0; padding: 8px 10px; background: #222; color: #fff; }
+      .editor textarea { min-height: 78px; resize: vertical; }
+      .editor .wide { grid-column: span 2; }
+      .editor .full { grid-column: 1 / -1; }
+      .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+      .actions button { border: 1px solid #fff; padding: 10px 20px; background: #fff; color: #111; cursor: pointer; }
+      .actions span { color: #bbb; font-size: 13px; }
+      #status { min-height: 1.4em; color: #ffb9b9; }
+      .preview { overflow-x: auto; padding: 18px 20px 60px; }
+      .sheet { width: 210mm; height: 297mm; margin: 0 auto 22px; padding: 15mm 17mm; background: #fff; box-shadow: 0 8px 40px #0008; overflow: hidden; font-size: 10pt; line-height: 1.35; }
+      .sheet-header { display: flex; justify-content: space-between; align-items: end; height: 10mm; margin-bottom: 5mm; }
+      .sheet-header strong { font-size: 18pt; font-weight: 500; letter-spacing: .25em; }
+      .sheet-header span { font-size: 9pt; }
+      .identity { display: grid; grid-template-columns: 1fr 31mm; gap: 5mm; height: 57mm; }
+      .identity-main { display: grid; grid-template-rows: 26mm 9mm 22mm; }
+      .name-box, .personal-box, .address-box, .photo-box, .contact-box, .box { border: 1px solid #222; }
+      .name-box { padding: 2mm 3mm; }
+      .label { display: block; font-size: 8pt; color: #555; }
+      .name-box .kana { display: block; min-height: 7mm; font-size: 9pt; }
+      .name-box .name { display: block; padding-top: 1mm; font-size: 16pt; letter-spacing: .01em; }
+      .personal-box { display: flex; align-items: center; justify-content: space-between; padding: 0 3mm; border-top: 0; }
+      .address-box { padding: 1.5mm 3mm; border-top: 0; }
+      .address-box .address { display: block; padding-top: 1mm; }
+      .photo-box { width: 30mm; height: 40mm; border: 1px solid #777; }
+      .photo-box img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .contact-box { display: grid; grid-template-columns: 1fr 60mm; height: 17mm; margin: 2mm 0 3mm; }
+      .contact-box > div { padding: 1.5mm 3mm; }
+      .contact-box > div + div { border-left: 1px solid #222; }
+      .contact-box p { margin: 1mm 0 0; font-size: 9pt; }
+      table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+      .history th, .history td, .licenses th, .licenses td { border: 1px solid #222; height: 8.5mm; padding: 0 1.5mm; font-weight: 400; vertical-align: middle; }
+      .history th, .licenses th { height: 8mm; text-align: center; letter-spacing: .08em; }
+      .history .year, .licenses .year { width: 18mm; text-align: center; }
+      .history .month, .licenses .month { width: 10mm; text-align: center; }
+      .history td:last-child, .licenses td:last-child { padding-left: 3mm; font-size: 9pt; }
+      .history .section td { text-align: center; letter-spacing: .15em; }
+      .history .end td:last-child { text-align: right; padding-right: 7mm; }
+      .note { margin: 2mm 0 0; font-size: 7pt; color: #555; }
+      .sheet-two .history { margin-bottom: 4mm; }
+      .licenses { margin-bottom: 4mm; }
+      .box { margin-bottom: 4mm; }
+      .box-title { display: block; min-height: 7mm; padding: 1.5mm 2.5mm; border-bottom: 1px solid #222; font-size: 9pt; }
+      .box-content { height: 36mm; padding: 3mm; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }
+      .preference .box-content { height: 21mm; }
+      .empty { color: #999; }
+      @media (max-width: 750px) { .editor { grid-template-columns: 1fr 1fr; } .editor .wide { grid-column: 1 / -1; } }
+      @media (max-width: 500px) { .editor { grid-template-columns: 1fr; } .editor .wide { grid-column: 1; } .toolbar { padding: 20px; } }
+      @page { size: A4 portrait; margin: 0; }
+      @media print {
+        :root { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        .toolbar { display: none; }
+        .preview { padding: 0; overflow: visible; }
+        .sheet { box-shadow: none; margin: 0; break-after: page; page-break-after: always; }
+        .sheet:last-child { break-after: auto; page-break-after: auto; }
+        .empty { color: #fff; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <nav><a href="/">Matthew Trost</a><a href="/cv">CV ↗</a></nav>
+      <h1>履歴書 <span lang="en">/ Rirekisho</span></h1>
+      <p>日本の応募用履歴書です。必要事項を入力すると、下の A4 用紙に反映されます。入力内容はこのページから送信・保存されません。応募先が指定する様式がある場合は、その指定に従ってください。</p>
+      <p lang="en">Fill the private and application-specific fields below, then print or save as a two-page A4 PDF. Entries stay in this browser tab and are not sent or saved. Check that the portrait was taken within about six months of submitting. The form follows the <a href="https://www.hellowork.mhlw.go.jp/member/career_doc01.html">Ministry of Health, Labour and Welfare's résumé example</a>.</p>
+      <form class="editor" id="editor">
+        <label>提出日 / Application date<input id="date" type="date" required /></label>
+        <label>生年月日 / Date of birth<input id="birth" type="date" required /></label>
+        <label>郵便番号 / Postal code<input id="postal" autocomplete="postal-code" placeholder="〒000-0000" required /></label>
+        <label class="wide">現住所 / Full address<input id="address" autocomplete="street-address" required /></label>
+        <label>住所のふりがな / Address reading<input id="addressKana" /></label>
+        <label>電話 / Phone<input id="phone" type="tel" autocomplete="tel" required /></label>
+        <label class="wide">メール / Email<input id="email" type="email" value="mrtrost@gmail.com" required /></label>
+        <label class="full">免許・資格 / Licenses and qualifications, one per line. Include acquisition year and month, or enter 特になし.<textarea id="licenses" required></textarea></label>
+        <label class="full">志望の動機・アピールポイント / Motivation for this employer<textarea id="motivation" required></textarea></label>
+        <label class="full">本人希望 / Conditions or preferences. If none, enter 「勤務条件は貴社の規定に従います。」<textarea id="preferences" required></textarea></label>
+      </form>
+      <div class="actions"><button type="button" id="print">Print / Save PDF</button><span>A4 · 100% scale · disable browser headers and footers</span></div>
+      <p id="status" role="status" aria-live="polite"></p>
+    </div>
+    <main class="preview">
+      <section class="sheet sheet-one" aria-label="履歴書 1ページ目">
+        <header class="sheet-header"><strong>履歴書</strong><span><b data-field="date"></b> 現在</span></header>
+        <div class="identity">
+          <div class="identity-main">
+            <div class="name-box"><span class="label">フリガナ</span><span class="kana">トロスト　マシュー　レイモンド</span><span class="label">氏名</span><span class="name">Trost Matthew Raymond</span></div>
+            <div class="personal-box"><span><b data-field="birth"></b> 生 （満 <b data-field="age"></b> 歳）</span><span>※性別：記載省略</span></div>
+            <div class="address-box"><span class="label">ふりがな <span data-field="addressKana"></span></span><span class="label">現住所　〒<span data-field="postal"></span></span><span class="address" data-field="address"></span></div>
+          </div>
+          <div class="photo-box"><img src="headshot-rirekisho.jpg" alt="Matthew Trost" width="300" height="400" /></div>
+        </div>
+        <div class="contact-box"><div><span class="label">連絡先（現住所以外への連絡を希望する場合のみ記入）</span></div><div><span class="label">電話・メール</span><p data-field="phone"></p><p data-field="email"></p></div></div>
+        <table class="history" aria-label="学歴・職歴 その1"><thead><tr><th class="year">年</th><th class="month">月</th><th>学歴・職歴（各別にまとめて書く）</th></tr></thead><tbody id="history-one"></tbody></table>
+        <p class="note">※ 性別欄の記載は任意です。</p>
+      </section>
+      <section class="sheet sheet-two" aria-label="履歴書 2ページ目">
+        <table class="history" aria-label="学歴・職歴 その2"><thead><tr><th class="year">年</th><th class="month">月</th><th>学歴・職歴（各別にまとめて書く）</th></tr></thead><tbody id="history-two"></tbody></table>
+        <table class="licenses" aria-label="免許・資格"><thead><tr><th class="year">年</th><th class="month">月</th><th>免許・資格</th></tr></thead><tbody id="license-rows"></tbody></table>
+        <div class="box"><span class="box-title">志望の動機、特技、アピールポイントなど</span><div class="box-content" data-field="motivation"></div></div>
+        <div class="box preference"><span class="box-title">本人希望記入欄（職種・勤務時間・勤務地・その他の希望）</span><div class="box-content" data-field="preferences"></div></div>
+      </section>
+    </main>
+    <script>
+      const HISTORY = [
+        ["", "", "学歴", "section"],
+        ["1997", "8", "Chaminade College Preparatory School（米国）入学"],
+        ["2001", "5", "Chaminade College Preparatory School（米国）卒業"],
+        ["2001", "8", "University of Missouri–St. Louis 入学"],
+        ["2005", "8", "University of Missouri–St. Louis 英語学士課程 卒業（優等）"],
+        ["2010", "1", "Borough of Manhattan Community College 履修開始（非学位）"],
+        ["2010", "12", "Borough of Manhattan Community College 履修終了"],
+        ["2025", "4", "Yamasa Institute 日本語・日本文化集中課程 入学"],
+        ["2026", "7", "Yamasa Institute 日本語・日本文化集中課程 修了"],
+        ["", "", "職歴", "section"],
+        ["2005", "9", "Oren’s Daily Roast 入社（バリスタ、後に副店長）"],
+        ["2006", "4", "Angelica Kitchen 入社（後にキッチンスーパーバイザー）"],
+        ["2006", "10", "Oren’s Daily Roast 退職"],
+        ["2007", "12", "TED Conferences, LLC 入社（編集、品質管理、ソフトウェア開発）"],
+        ["2008", "4", "Angelica Kitchen 退職"],
+        ["2014", "8", "TED Conferences, LLC 退職"],
+        ["2014", "9", "Famous Industries, Inc. 入社（ソフトウェア開発・チームリード）"],
+        ["2015", "8", "Famous Industries, Inc. 退職"],
+        ["2015", "8", "Civil, Inc. 入社（シニアエンジニア）"],
+        ["2016", "3", "Civil, Inc. 退職"],
+        ["2016", "3", "Paperspace, Inc. 入社（ソフトウェアエンジニア）"],
+        ["2016", "11", "Paperspace, Inc. 退職"],
+        ["2016", "11", "Haiku, Inc. 共同創業・CTO 就任"],
+        ["2018", "10", "Haiku, Inc. 退職"],
+        ["2019", "5", "Plato Design, Inc. 入社（シニアソフトウェアエンジニア）"],
+        ["2019", "9", "Plato Design, Inc. の Aesthetic 事業に従事"],
+        ["2020", "2", "Plato Design, Inc. の Aesthetic 事業創業メンバーに就任"],
+        ["2023", "9", "Plato Design, Inc. の Aesthetic 事業 CTO に就任"],
+        ["2024", "2", "Plato Design, Inc. の Superoot 事業を共同創業、CTO・COO に就任"],
+        ["", "", "現在に至る", "end"],
+        ["", "", "以上", "end"]
+      ];
+
+      function appendRows(target, rows) {
+        const body = document.getElementById(target);
+        rows.forEach(([year, month, description, kind]) => {
+          const row = body.insertRow();
+          if (kind) row.className = kind;
+          [year, month, description].forEach((value) => { row.insertCell().textContent = value; });
+        });
+      }
+
+      appendRows("history-one", HISTORY.slice(0, 17));
+      appendRows("history-two", HISTORY.slice(17));
+
+      const ids = ["date", "birth", "postal", "address", "addressKana", "phone", "email", "licenses", "motivation", "preferences"];
+      const fields = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
+      fields.date.value = new Date().toLocaleDateString("sv-SE");
+
+      function formatDate(value) {
+        if (!value) return "";
+        const [year, month, day] = value.split("-").map(Number);
+        return `${year}年 ${month}月 ${day}日`;
+      }
+
+      function calcAge(birth, current) {
+        if (!birth || !current || birth > current) return "";
+        const [year, month, day] = birth.split("-").map(Number);
+        const [nowYear, nowMonth, nowDay] = current.split("-").map(Number);
+        return nowYear - year - Number(nowMonth < month || (nowMonth === month && nowDay < day));
+      }
+
+      function update() {
+        const data = Object.fromEntries(ids.map((id) => [id, fields[id].value.trim()]));
+        data.date = formatDate(data.date);
+        data.birth = formatDate(data.birth);
+        data.age = calcAge(fields.birth.value, fields.date.value);
+        document.querySelectorAll("[data-field]").forEach((node) => {
+          const value = data[node.dataset.field] || "";
+          node.textContent = value;
+          node.classList.toggle("empty", !value);
+        });
+        const body = document.getElementById("license-rows");
+        body.replaceChildren();
+        const lines = data.licenses.split("\n").map((line) => line.trim()).filter(Boolean).slice(0, 4);
+        for (let i = 0; i < 4; i++) {
+          const row = body.insertRow();
+          const match = lines[i]?.match(/^(\d{4})[年/.-]\s*(\d{1,2})月?\s*(.*)$/);
+          [match?.[1] || "", match?.[2] || "", match?.[3] || lines[i] || ""].forEach((value) => { row.insertCell().textContent = value; });
+        }
+      }
+
+      document.getElementById("editor").addEventListener("input", update);
+      document.getElementById("print").addEventListener("click", () => {
+        const missing = ids.filter((id) => fields[id].required && !fields[id].value.trim());
+        const status = document.getElementById("status");
+        if (missing.length) {
+          status.textContent = `Before printing, fill: ${missing.map((id) => fields[id].closest("label").firstChild.textContent.split(" /")[0]).join("、")}`;
+          fields[missing[0]].focus();
+          return;
+        }
+        if (fields.birth.value > fields.date.value) {
+          status.textContent = "Please check the application date and date of birth.";
+          return;
+        }
+        if (fields.licenses.value.split("\n").filter((line) => line.trim()).length > 4) {
+          status.textContent = "The qualifications section has room for four lines. Please shorten the list.";
+          fields.licenses.focus();
+          return;
+        }
+        const overflowing = ["motivation", "preferences"].filter((id) => {
+          const node = document.querySelector(`[data-field="${id}"]`);
+          return node.scrollHeight > node.clientHeight;
+        });
+        if (overflowing.length) {
+          status.textContent = "Please shorten the motivation or preferences text so it fits on the printed page.";
+          fields[overflowing[0]].focus();
+          return;
+        }
+        status.textContent = "";
+        window.print();
+      });
+      update();
+    </script>
+  </body>
+</html>
