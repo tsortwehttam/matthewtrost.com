@@ -17,7 +17,7 @@
       .sheet:last-child { margin-bottom: 0; }
       .print-actions { display: grid; justify-items: center; padding: 26px 20px 40px; }
       .print-actions button { border: 1px solid #fff; padding: 10px 28px; background: #fff; color: #111; cursor: pointer; }
-      .print-actions a { color: #bbb; font-size: 12px; text-underline-offset: 3px; }
+      .print-actions a { color: #888; font-size: 12px; text-underline-offset: 3px; }
       #status:empty { display: none; }
       #status:not(:empty) { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: min(90vw, 600px); margin: 0; padding: 10px 14px; background: #333; color: #fff; text-align: center; z-index: 2; }
       .sheet-header { display: flex; justify-content: space-between; align-items: end; height: 10mm; margin-bottom: 5mm; }
@@ -100,7 +100,7 @@
         <div class="box preference"><span class="box-title">本人希望記入欄（職種・勤務時間・勤務地・その他の希望）</span><div class="box-content editable" data-edit="preferences" data-placeholder="希望がなければ「勤務条件は貴社の規定に従います。」" contenteditable="plaintext-only" role="textbox" aria-label="本人希望" aria-multiline="true"></div></div>
       </section>
     </main>
-    <footer class="print-actions"><button type="button" id="print">Print</button><a href="rirekisho-fillable.pdf" download>Download blank fillable PDF</a><p id="status" role="status" aria-live="polite"></p></footer>
+    <footer class="print-actions"><button type="button" id="print">Print</button><a href="rirekisho-fillable.pdf" download aria-label="Download blank fillable PDF">Download</a><p id="status" role="status" aria-live="polite"></p></footer>
     <script>
       const HISTORY = [
         ["", "", "学歴", "section"],
