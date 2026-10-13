@@ -17,11 +17,13 @@
       .sheet:last-child { margin-bottom: 0; }
       .print-actions { display: grid; justify-items: center; padding: 26px 20px 40px; }
       .print-actions button { border: 1px solid #fff; padding: 10px 28px; background: #fff; color: #111; cursor: pointer; }
+      .print-actions a { color: #bbb; font-size: 12px; text-underline-offset: 3px; }
       #status:empty { display: none; }
       #status:not(:empty) { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: min(90vw, 600px); margin: 0; padding: 10px 14px; background: #333; color: #fff; text-align: center; z-index: 2; }
       .sheet-header { display: flex; justify-content: space-between; align-items: end; height: 10mm; margin-bottom: 5mm; }
       .sheet-header strong { font-size: 18pt; font-weight: 500; letter-spacing: .25em; }
       .sheet-header span { font-size: 9pt; }
+      .sheet-header [data-edit="date"] { display: inline-block; width: 34mm; text-align: right; }
       .identity { display: grid; grid-template-columns: 1fr 31mm; gap: 5mm; height: 57mm; }
       .identity-main { display: grid; grid-template-rows: 26mm 9mm 22mm; }
       .name-box, .personal-box, .address-box, .photo-box, .contact-box, .box { border: 1px solid #222; }
@@ -30,6 +32,8 @@
       .name-box .kana { display: block; min-height: 7mm; font-size: 9pt; }
       .name-box .name { display: block; padding-top: 1mm; font-size: 16pt; letter-spacing: .01em; }
       .personal-box { display: flex; align-items: center; justify-content: space-between; padding: 0 3mm; border-top: 0; }
+      .personal-box [data-edit="birth"] { display: inline-block; width: 35mm; }
+      #age { display: inline-block; min-width: 5mm; min-height: 1em; text-align: center; }
       .address-box { padding: 1.5mm 3mm; border-top: 0; }
       .address-box .address { display: block; padding-top: 1mm; }
       .photo-box { width: 30mm; height: 40mm; border: 1px solid #777; }
@@ -85,7 +89,7 @@
           </div>
           <div class="photo-box"><img src="headshot-rirekisho.jpg" alt="Matthew Trost" width="300" height="400" /></div>
         </div>
-        <div class="contact-box"><div><span class="label">連絡先（現住所以外への連絡を希望する場合のみ記入）</span></div><div><span class="label">電話・メール</span><p class="editable" data-edit="phone" data-placeholder="電話番号" contenteditable="plaintext-only" role="textbox" aria-label="電話番号"></p><p class="editable" data-edit="email" data-placeholder="メールアドレス" contenteditable="plaintext-only" role="textbox" aria-label="メールアドレス">mrtrost@gmail.com</p></div></div>
+        <div class="contact-box"><div><span class="label">連絡先（現住所以外への連絡を希望する場合のみ記入）</span></div><div><span class="label">電話・メール</span><p class="editable" data-edit="phone" data-placeholder="電話番号" contenteditable="plaintext-only" role="textbox" aria-label="電話番号"></p><p class="editable" data-edit="email" data-placeholder="メールアドレス" contenteditable="plaintext-only" role="textbox" aria-label="メールアドレス"></p></div></div>
         <table class="history" aria-label="学歴・職歴 その1"><thead><tr><th class="year">年</th><th class="month">月</th><th>学歴・職歴（各別にまとめて書く）</th></tr></thead><tbody id="history-one"></tbody></table>
         <p class="note">※ 性別欄の記載は任意です。</p>
       </section>
@@ -96,7 +100,7 @@
         <div class="box preference"><span class="box-title">本人希望記入欄（職種・勤務時間・勤務地・その他の希望）</span><div class="box-content editable" data-edit="preferences" data-placeholder="希望がなければ「勤務条件は貴社の規定に従います。」" contenteditable="plaintext-only" role="textbox" aria-label="本人希望" aria-multiline="true"></div></div>
       </section>
     </main>
-    <footer class="print-actions"><button type="button" id="print">Print</button><p id="status" role="status" aria-live="polite"></p></footer>
+    <footer class="print-actions"><button type="button" id="print">Print</button><a href="rirekisho-fillable.pdf" download>Download blank fillable PDF</a><p id="status" role="status" aria-live="polite"></p></footer>
     <script>
       const HISTORY = [
         ["", "", "学歴", "section"],
@@ -185,29 +189,15 @@
       }
 
       addLicenseRows();
-      const today = new Date();
-      getField("date").textContent = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`;
       document.querySelector(".preview").addEventListener("input", updateAge);
       document.getElementById("print").addEventListener("click", () => {
         const status = document.getElementById("status");
-        const required = ["date", "birth", "postal", "address", "phone", "email", "motivation", "preferences"];
-        const missing = required.find((id) => !getField(id).textContent.trim());
-        if (missing) {
-          status.textContent = `Please fill ${getField(missing).getAttribute("aria-label")} on the page before printing.`;
-          getField(missing).focus();
-          return;
-        }
-        const birth = parseDate(getField("birth").textContent);
+        const birthText = getField("birth").textContent.trim();
+        const birth = parseDate(birthText);
         const current = parseDate(getField("date").textContent);
-        if (!birth || !current || birth > current) {
+        if ((birthText && (!birth || !current || birth > current)) || (!current && getField("date").textContent.trim())) {
           status.textContent = "Use YYYY年M月D日 for the application date and birth date, and check their order.";
           getField("birth").focus();
-          return;
-        }
-        const qualifications = [...document.querySelectorAll('[data-edit$="-description"]')];
-        if (!qualifications.some((field) => field.textContent.trim())) {
-          status.textContent = "Enter qualifications in the table, or write 特になし.";
-          qualifications[0].focus();
           return;
         }
         const boxes = [...document.querySelectorAll(".box-content, .address-box, .contact-box, .sheet")];
